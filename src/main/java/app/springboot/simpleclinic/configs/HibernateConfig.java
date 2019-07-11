@@ -58,6 +58,7 @@ public class HibernateConfig {
         hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
         hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
         hibernateProperties.put("hibernate.jdbc.lob.non_contextual_creation", true);
+        hibernateProperties.put("hibernate.enable_lazy_load_no_trans", true);
         sessionFactoryBean.setHibernateProperties(hibernateProperties);
 
 

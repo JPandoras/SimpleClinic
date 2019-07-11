@@ -11,7 +11,8 @@ public class Medication {
     @Column(name = "id")
     private String id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "treatment_id", referencedColumnName = "id")
     private Treatment treatmentId;
 
     @Column(name = "notes")

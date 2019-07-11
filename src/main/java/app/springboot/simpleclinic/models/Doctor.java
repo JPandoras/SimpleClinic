@@ -5,11 +5,15 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "doctor")
-public class Doctor implements Serializable {
+public class Doctor implements Serializable{
 
     @Id
+    @Column(name = "id")
+    private String id;
+
     @OneToOne
-    private UserLogin id;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private UserLogin userLogin;
 
     @Column(name = "name")
     private String name;
@@ -17,12 +21,20 @@ public class Doctor implements Serializable {
     @Column(name = "availability")
     private String availability;
 
-    public UserLogin getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UserLogin id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public UserLogin getUserLogin() {
+        return userLogin;
+    }
+
+    public void setUserLogin(UserLogin userLogin) {
+        this.userLogin = userLogin;
     }
 
     public String getName() {
@@ -41,12 +53,6 @@ public class Doctor implements Serializable {
         this.availability = availability;
     }
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", availability='" + availability + '\'' +
-                '}';
-    }
 }
+
+

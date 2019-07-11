@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/doctor").hasRole("DC")
                 .antMatchers("/clinicadm").hasRole("CA")
                 .antMatchers("/pharmacy").hasRole("PH")
-                .and().formLogin().loginPage("/").usernameParameter("username").passwordParameter("password").permitAll()
+                .and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
                 .loginProcessingUrl("/doLogin")
                 .successForwardUrl("/successLogin")
                 .failureUrl("/loginFailed")
